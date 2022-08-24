@@ -4,7 +4,8 @@ public class FourBalls extends PApplet {
     public static final int HEIGHT = 800;
     public static final int WIDTH = 800;
     public static final int DIAMETER = 20;
-    int x1=0,x2=0,x3=0,x4=0;
+    int widthWithSpeedOneUnitPerFrame=0,widthWithSpeedTwoUnitPerFrame=0,
+            widthWithSpeedThreeUnitPerFrame=0,widthWithSpeedFourUnitPerFrame=0;
 
     @Override
     public void setup() {
@@ -19,14 +20,14 @@ public class FourBalls extends PApplet {
 
     @Override
     public void draw() {
-        ellipse(x1,HEIGHT/5,DIAMETER,DIAMETER);
-        x1++;
-        ellipse(x2,2*HEIGHT/5,DIAMETER,DIAMETER);
-        x2+=2;
-        ellipse(x3,3*HEIGHT/5,DIAMETER,DIAMETER);
-        x3+=3;
-        ellipse(x4,4*HEIGHT/5,DIAMETER,DIAMETER);
-        x4+=4;
+        ellipse(widthWithSpeedOneUnitPerFrame,HEIGHT/5,DIAMETER,DIAMETER);
+        widthWithSpeedOneUnitPerFrame++;
+        ellipse(widthWithSpeedTwoUnitPerFrame,2*HEIGHT/5,DIAMETER,DIAMETER);
+        widthWithSpeedTwoUnitPerFrame+=2;
+        ellipse(widthWithSpeedThreeUnitPerFrame,3*HEIGHT/5,DIAMETER,DIAMETER);
+        widthWithSpeedThreeUnitPerFrame+=3;
+        ellipse(widthWithSpeedFourUnitPerFrame,4*HEIGHT/5,DIAMETER,DIAMETER);
+        widthWithSpeedFourUnitPerFrame+=4;
     }
 
     public static void main(String[] args) {
