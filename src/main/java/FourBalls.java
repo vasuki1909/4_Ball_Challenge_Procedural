@@ -4,9 +4,13 @@ public class FourBalls extends PApplet {
     public static final int HEIGHT = 800;
     public static final int WIDTH = 800;
     public static final int DIAMETER = 20;
-    int widthWithSpeedOneUnitPerFrame=0,widthWithSpeedTwoUnitPerFrame=0,
-            widthWithSpeedThreeUnitPerFrame=0,widthWithSpeedFourUnitPerFrame=0;
+    public static  int position = 0;
+    int totalBalls =4;
+    int divisor =5;
 
+    public static void main(String[] args) {
+        PApplet.main("FourBalls",args);
+    }
     @Override
     public void setup() {
         super.setup();
@@ -18,19 +22,17 @@ public class FourBalls extends PApplet {
         size(WIDTH,HEIGHT);
     }
 
-    @Override
-    public void draw() {
-        ellipse(widthWithSpeedOneUnitPerFrame,HEIGHT/5,DIAMETER,DIAMETER);
-        widthWithSpeedOneUnitPerFrame++;
-        ellipse(widthWithSpeedTwoUnitPerFrame,2*HEIGHT/5,DIAMETER,DIAMETER);
-        widthWithSpeedTwoUnitPerFrame+=2;
-        ellipse(widthWithSpeedThreeUnitPerFrame,3*HEIGHT/5,DIAMETER,DIAMETER);
-        widthWithSpeedThreeUnitPerFrame+=3;
-        ellipse(widthWithSpeedFourUnitPerFrame,4*HEIGHT/5,DIAMETER,DIAMETER);
-        widthWithSpeedFourUnitPerFrame+=4;
+    private void ball(int velocity, int height) {
+        ellipse(velocity,height,DIAMETER, DIAMETER);
     }
 
-    public static void main(String[] args) {
-        PApplet.main("FourBalls",args);
+    @Override
+    public void draw() {
+        for (int speed = 1; speed <= totalBalls; speed++) {
+            ball(speed*position,speed*HEIGHT/divisor);
+        }
+        position++;
     }
+
+
 }
